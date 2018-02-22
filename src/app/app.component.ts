@@ -13,7 +13,7 @@ export class AppComponent {
   lat = 51.678418;
   lng = 7.809007;
   zoom = 5;
-
+  isValid = true;
   markers: marker[] = [
 {
   lat: 51.673858,
@@ -66,7 +66,7 @@ export class AppComponent {
     this.zoom = this.zoom - 1;
   }
   CIRCLE() {
-
+    this.isValid = !this.isValid;
   }
 
   pointto(str: string) {

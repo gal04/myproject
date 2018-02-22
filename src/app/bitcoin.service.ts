@@ -10,8 +10,8 @@ export class BitcoinService {
 
   constructor() {
     this.state = {
-      price: 0,
-    }
+      price: 0
+    };
   }
    change(change: number) {
      this.state.price += change;
