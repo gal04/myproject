@@ -46,6 +46,7 @@ import { BitcoinService } from './bitcoin.service';
 import { BitcoinChangeComponent } from './bitcoin-change/bitcoin-change.component';
 import { AgmCoreModule } from '@agm/core';
 
+import {HttpClientModule} from '@angular/common/http';
 const MAT_MODULES  = [
   CdkTableModule,
   MatAutocompleteModule,
@@ -93,6 +94,7 @@ const MAT_MODULES  = [
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAgqmITgYzFDV_NzMYV4NBLLXkV17Fm-2g'
     }),

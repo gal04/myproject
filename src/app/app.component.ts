@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+import {HttpClient} from '@angular/common/http';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -37,13 +38,21 @@ export class AppComponent {
 
   options: FormGroup;
 
-  constructor(fb: FormBuilder) {
+  contacts: Contact[];
+
+  constructor(fb: FormBuilder, private http: HttpClient) {
 
     this.options = fb.group({
       'point': 'israel',
       'sign': '$',
       'rate': [10, Validators.min(1)]
     });
+  }
+  // tslint:disable-next-line:use-life-cycle-interface
+  async ngOnInit() {
+    this.contacts = await this.http.get<Contact[]>('/api/contact').toPromise();
+
+    console.log(this.contacts);
   }
 
   increment() {
@@ -94,6 +103,10 @@ export class AppComponent {
 
 // tslint:disable-next-line:label-position
 
+export interface Contact {
+  id: number;
+  name: string;
+}
 // tslint:disable-next-line:class-name
 interface marker {
   lat: number;
